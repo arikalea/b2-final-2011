@@ -11,20 +11,20 @@ RSpec.describe 'As a visitor' do
   describe 'When I visit Flights Index page' do
     it 'I see each flight in the system including its number, departure city, and arrival city' do
       within("#flight-#{@flight_1.id}") do
-        expect(page).to have_content(@flight_1.number)
+        expect(page).to have_content("Flight Number: #{@flight_1.number}")
         expect(page).to have_content(@flight_1.departure_city)
         expect(page).to have_content(@flight_1.arrival_city)
       end
       within("#flight-#{@flight_2.id}") do
-        expect(page).to have_content(@flight_2.number)
+        expect(page).to have_content("Flight Number: #{@flight_2.number}")
         expect(page).to have_content(@flight_2.departure_city)
         expect(page).to have_content(@flight_2.arrival_city)
       end
       within("#flight-#{@flight_3.id}") do
-        expect(page).to have_content(@flight_3.number)
+        expect(page).to have_content("Flight Number: #{@flight_3.number}")
         expect(page).to have_content(@flight_3.departure_city)
         expect(page).to have_content(@flight_3.arrival_city)
-      end 
+      end
     end
   end
 end
