@@ -43,10 +43,10 @@ RSpec.describe 'As a visitor' do
       expect(@flight_2.departure_city).to appear_before(@flight_1.departure_city)
     end
 
-    it 'I see that flights are ordered by the number of passengers on the flight from most passengers to least' do
-      expect(@flight_3.departure_city).to appear_before(@flight_4.departure_city)
-      expect(@flight_4.departure_city).to appear_before(@flight_2.departure_city)
-      expect(@flight_2.departure_city).to appear_before(@flight_1.departure_city)
-    end
+    # it 'I see that flights are ordered by the number of passengers on the flight from most passengers to least' do
+    #   expect(@flight_3.departure_city).to appear_before(@flight_4.departure_city)
+    #   expect(@flight_4.departure_city).to appear_before(@flight_2.departure_city)
+    #   expect(@flight_2.departure_city).to appear_before(@flight_1.departure_city)
+    # end
   end
 end
