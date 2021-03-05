@@ -8,7 +8,8 @@
 <ul class="adult-passengers">
   <% @flight.adult_passengers.each do |passenger| %>
     <section id="adult-passenger-<%= passenger.id %>">
-      <li><%= passenger.name %></li>
+      <li><%= passenger.name %>
+      <%= button_to "Remove Passenger from flight", flight_passenger_path(passenger.id, @flight.id), method: :delete, local: true %></li>
     </section>
   <% end %>
 </ul><br>
