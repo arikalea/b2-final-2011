@@ -9,4 +9,8 @@ class Flight < ApplicationRecord
   def adult_passengers
     passengers.where('age >= 18')
   end
+
+  def avg_adult_age
+    passengers.where('age >= 18').average(:age)
+  end
 end

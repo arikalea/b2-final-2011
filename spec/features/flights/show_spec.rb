@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   before :each do
     @flight_1 = Flight.create(number: 111, date: "01/01/01", time: "1:00pm", departure_city: "SLC", arrival_city: "Denver")
-    @flight_2 = Flight.create(number: 222, date: "02/02/02", time: "2:00pm", departure_city: "LA", arrival_city: "Seattle")
-    @flight_3 = Flight.create(number: 333, date: "03/03/03", time: "3:00pm", departure_city: "Dallas", arrival_city: "NYC")
     @passenger_1 = @flight_1.passengers.create!(name: "Bob", age: 20)
     @passenger_2 = @flight_1.passengers.create!(name: "Sally", age: 17)
     @passenger_3 = @flight_1.passengers.create!(name: "Kim", age: 40)
@@ -30,6 +28,9 @@ RSpec.describe 'As a visitor' do
         expect(page).to have_content(@passenger_5.name)
         expect(page).to_not have_content(@passenger_2.name)
       end
+    end
+    it 'I see the average age of all adult passengers on the flight' do
+      expect(page).to have_content("Average age of adult passengers: #{@flight_1.avg_adult_age}")
     end
   end
 end
