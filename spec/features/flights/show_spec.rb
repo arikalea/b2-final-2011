@@ -8,7 +8,6 @@ RSpec.describe 'As a visitor' do
     @passenger_3 = @flight_1.passengers.create!(name: "Kim", age: 40)
     @passenger_4 = @flight_1.passengers.create!(name: "Rae", age: 30)
     @passenger_5 = @flight_1.passengers.create!(name: "Rae", age: 44)
-    # average age = 33.5
     visit "/flights/#{@flight_1.id}"
   end
 
@@ -46,7 +45,7 @@ RSpec.describe 'As a visitor' do
 
       within(".adult-passengers") do
         expect(page).to_not have_content(@passenger_1.name)
-      end 
+      end
     end
   end
 end
