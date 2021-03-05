@@ -8,7 +8,7 @@ RSpec.describe 'As a visitor' do
     @passenger_3 = @flight_1.passengers.create!(name: "Kim", age: 40)
     @passenger_4 = @flight_1.passengers.create!(name: "Rae", age: 30)
     @passenger_5 = @flight_1.passengers.create!(name: "Rae", age: 44)
-    visit "/flights/#{@flight_1.id}"
+    visit flight_path(@flight_1.id)
   end
 
   describe 'When I visit Flights Show page' do
@@ -28,9 +28,11 @@ RSpec.describe 'As a visitor' do
         expect(page).to_not have_content(@passenger_2.name)
       end
     end
+
     it 'I see the average age of all adult passengers on the flight' do
       expect(page).to have_content("Average age of adult passengers: #{@flight_1.avg_adult_age}")
     end
+    
     it 'Next to each passengers name I see a link or button to remove that passenger from that flight
       When I click on that link or button
       Im returned to the flights show page
@@ -41,7 +43,7 @@ RSpec.describe 'As a visitor' do
         click_on"Remove Passenger from flight"
       end
 
-      expect(current_path).to eq("/flights/#{@flight_1.id}")
+      expect(current_path).to eq(flight_path(@flight_1.id))
 
       within(".adult-passengers") do
         expect(page).to_not have_content(@passenger_1.name)
