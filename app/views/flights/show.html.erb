@@ -1,0 +1,14 @@
+<h3><%= "Flight Number: #{@flight.number} " %></h3>
+<h3><%= "Date: #{@flight.date} " %></h3>
+<h3><%= "Time: #{@flight.time} " %></h3>
+<h3><%= "Departure City: #{@flight.departure_city} " %></h3>
+<h3><%= "Arrival City: #{@flight.arrival_city} " %></h3><br>
+
+<h3>Adult passengers on this flight:</h3>
+<ul class="adult-passengers">
+  <% @flight.adult_passengers.each do |passenger| %>
+    <section id="adult-passenger-<%= passenger.id %>">
+      <li><%= passenger.name %></li>
+    </section>
+  <% end %>
+</ul>

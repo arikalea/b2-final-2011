@@ -23,7 +23,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content("Departure City: #{@flight_1.departure_city}")
       expect(page).to have_content("Arrival City: #{@flight_1.arrival_city}")
 
-      within("#adult-passengers") do
+      within(".adult-passengers") do
         expect(page).to have_content(@passenger_1.name)
         expect(page).to have_content(@passenger_3.name)
         expect(page).to have_content(@passenger_4.name)
@@ -32,4 +32,4 @@ RSpec.describe 'As a visitor' do
       end
     end
   end
-end 
+end
